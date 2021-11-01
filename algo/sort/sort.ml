@@ -39,6 +39,7 @@ let rec fusion_sort = function
     
     
     
+<<<<<<< HEAD
 (** [concat l1 l2] returns the list containing the elements of [l1], followed by the elements of [l2] *)
 let rec _concat l1 l2 = match l1 with
     | [] -> l2
@@ -57,3 +58,28 @@ let rec quicksort l = match l with
     | [e] -> [e]
     | e::q -> let l1, l2 = _partition e q in
         _concat (quicksort l1) (e::quicksort l2);;
+=======
+(** [_maximum t] returns the maximum in an array [t] *)
+let _maximum t = 
+    let m = ref t.(0) in
+    for i=1 to Array.length t - 1 do
+        m := max t.(i) !m
+    done;
+    !m;;
+    
+(** [tri_comptage t] sorts the array t using counting sort *)
+let tri_comptage t =
+    let m = _maximum t in
+    let compte = Array.make (m+1) 0 in
+    let n = Array.length t in
+    for i=0 to n - 1 do
+        compte.(t.(i)) <- compte.(t.(i)) + 1
+    done;
+    let k = ref 0 in
+    for i=0 to m do
+        for j=1 to compte.(i) do
+            t.(!k) <- i;
+            incr k
+        done
+    done;;
+>>>>>>> 66ea5c17a9bca7f229fefa0f52759acdb609e4ca
