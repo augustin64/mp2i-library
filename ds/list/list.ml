@@ -10,11 +10,6 @@ let rec maximum l = match l with
         if e > m then e
         else m;;
 
-(** [concat l1 l2] returns the list containing the elements of [l1], followed by the elemtents of [l2] *)
-let rec concat l1 l2 = match l1 with (* ici il est préférable de faire un match sur l1 seulement *)
-    | [] -> l2
-    | e::q -> e::(concat q l2);;
-
 (** [egal l1 l2] returns wether [l1] is equal to [l2] or not *)
 let rec equal l1 l2 = match l1, l2 with
   | [], [] -> true
@@ -22,7 +17,7 @@ let rec equal l1 l2 = match l1, l2 with
   | [], e::q -> false
   | e1::q1, e2::q2 -> e1 = e2 && equal q1 q2;;
 
-(** [doublon l] returns wether [l] contains two consecutive similar items or not *)
+(** [duplicate l] returns wether [l] contains two consecutive similar items or not *)
 let rec duplicate l = match l with
     | [] -> false
     | [e] -> false
