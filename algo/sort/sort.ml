@@ -14,6 +14,8 @@ let sort_bubble t =
       done
   done;;
 
+
+
 (** [_split l] split l in two equal parts*)
 let rec _split = function
     | [] -> [], []
@@ -28,9 +30,30 @@ let rec _fusion l1 l2 = match l1, l2 with
     | e1::q1, e2::q2 when e1 < e2 -> e1::_fusion q1 l2
     | e1::q1, e2::q2 -> e2::_fusion l1 q2;;
 
-(** [fusion_sort l] sorts list l using fusion sort (O(n???)) *)
+(** [fusion_sort l] sorts list l using fusion sort *)
 let rec fusion_sort = function
     | [] -> []
     | [e] -> [e]
     | l -> let l1, l2 = _split l in
     _fusion (fusion_sort l1) (fusion_sort l2);;
+    
+    
+    
+(** [concat l1 l2] returns the list containing the elements of [l1], followed by the elements of [l2] *)
+let rec _concat l1 l2 = match l1 with
+    | [] -> l2
+    | e::q -> e::(_concat q l2);;
+    
+(** [_partition p l] splits the list l in two parts, the elements greater or equal than p and the others *)
+let rec _partition p l = match l with
+    | [] -> ([], [])
+    | e::q -> let l1, l2 = (_partition p q) in
+                if e < p then ((e::l1), l2)
+                else (l1, (e::l2));;
+
+(** [quicksort l] uses the quicksort algorithm to sort the list l *)
+let rec quicksort l = match l with
+    | [] -> []
+    | [e] -> [e]
+    | e::q -> let l1, l2 = _partition e q in
+        _concat (quicksort l1) (e::quicksort l2);;
