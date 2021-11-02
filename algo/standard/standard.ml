@@ -35,7 +35,7 @@ let rec exp_rapide a n =
     else a*b*b;;
     
 (** [range n] returns a decreasing range from n to 0 [n; n-1; n-2; ...; 2; 1; 0] *)    
-let rec range n = (*renvoie une range décroissante commençant à n et finisstant à 0*)
+let rec range n =
     if n = 0 then [0]
     else n::range (n - 1);;
     
