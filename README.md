@@ -1,5 +1,27 @@
 # Bibliothèque OCaml pour l'informatique en MP2I
 
+### Algorithmes implémentés :
+- [algorithmes basiques sur les tableaux](https://github.com/augustin64/mp2i-library/tree/master/algo/array) (somme, minimum, maximum, tranche_max, ...)
+- [algorithmes de recherche d'un élément](https://github.com/augustin64/mp2i-library/tree/master/algo/search) (dichotomie, trichotomie, List.mem)
+- [algorithmes de tri](https://github.com/augustin64/mp2i-library/tree/master/algo/sort) (tri fusion, tri rapide, tri comptage)
+- [algorithmes standards](https://github.com/augustin64/mp2i-library/tree/master/algo/standard) (swap de deux références, exponentiation rapide, factorielle d'un nombre, ...)
+- [algorithme de recherche d'un cycle](https://github.com/augustin64/mp2i-library/tree/master/algo/has_cycle) (itératif avec complexité mémoire en O(n) et algorithme du lièvre et de la tortue)
+
+### Structures de données implémentées :
+- [nombres complexes](https://github.com/augustin64/mp2i-library/tree/master/ds/complex) (définition du type, opérations basiques et quelques fonctions relatives à la géométrie)
+- [tableaux dynamiques](https://github.com/augustin64/mp2i-library/tree/master/ds/dyn_array)
+- [entiers](https://github.com/augustin64/mp2i-library/blob/master/ds/entier) (type int avec gestion de l'overflow (_passage en ±∞_) )
+- [files](https://github.com/augustin64/mp2i-library/blob/master/ds/file)
+- [dictionnaires](https://github.com/augustin64/mp2i-library/blob/master/ds/hash_table) (implémentés par des tables de hachage)
+- [listes doublement chaînées cycliques impératives](https://github.com/augustin64/mp2i-library/tree/master/ds/l2c)
+- [algorithmes sur le type list](https://github.com/augustin64/mp2i-library/tree/master/ds/list)
+- [liste chaînées](https://github.com/augustin64/mp2i-library/tree/master/ds/liste1) (fichier basique, contenant les opérations minimales pour la [recherche de cycle](https://github.com/augustin64/mp2i-library/tree/master/algo/has_cycle))
+- [stack/piles](https://github.com/augustin64/mp2i-library/tree/master/ds/stack)
+- [tableaux dynamiques](https://github.com/augustin64/mp2i-library/tree/master/ds/table_dyn) (type plus élaboré que [le précédent](https://github.com/augustin64/mp2i-library/tree/master/ds/dyn_array))
+- [zippers](https://github.com/augustin64/mp2i-library/tree/master/ds/zipper) (implémentation persistante d'une liste doublement cha
+
+### Consignes :
+
 Pour poser des questions : https://github.com/mp2i-fsm/mp2i-2021/discussions  
 
 Suivre les étapes suivantes pour la mise en place de la bibliothèque :
