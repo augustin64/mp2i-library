@@ -6,7 +6,7 @@ type 'a stack_imperative = {
 
 (** [stack_of_array t] returns a stack implemented with array t *)
 let stack_of_array t =
-  let n = ref 0 in (* number of elemnts in the stack *)
+  let n = ref 0 in (* number of elements in the stack *)
   {
     empty = (fun () -> !n = 0);
     push = (fun e -> if !n >= Array.length t 
