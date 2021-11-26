@@ -21,7 +21,7 @@ complexe diff(complexe z1, complexe z2) {
     z3.reel = z1.reel - z2.reel;
     z3.imag = z1.imag - z2.imag;
     return z3;
-}
+};
 
 complexe mult(complexe z1, complexe z2) {
     complexe z3;
@@ -38,10 +38,18 @@ complexe divise(complexe z1, complexe z2) {
     return z3;
 };
 
+void rotation(complexe* z1, float theta) {
+    complexe z2;
+    z2.imag = sin(theta);
+    z2.reel = cos(theta);
+
+    *z1 = mult(*z1, z2);
+};
+
 float dist(complexe z1, complexe z2) {
     complexe d = diff(z1, z2);
     return sqrtf(d.reel*d.reel + d.imag*d.imag);
-}
+};
 
 float module(complexe z) {
     complexe orig;
@@ -50,7 +58,7 @@ float module(complexe z) {
     return dist(z, orig);
 };
 
-int main() {
+void tests() {
     complexe z1;
     z1.reel = 2;
     z1.imag = 3.2;
@@ -58,10 +66,17 @@ int main() {
     complexe z2;
     z2.reel = 1.2;
     z2.imag = 0.4;
-    
+
     complexe z3 = divise(z1, z2);
-    
+
     printf("%f + %fi\n", z3.reel, z3.imag);
     printf("distance: %f\n", dist(z1, z2));
+
+    rotation(&z3, 3.14);
+    printf("%f + %fi\n", z3.reel, z3.imag);
+};
+
+int main() {
+    tests();
     return 0;
-}
+};
