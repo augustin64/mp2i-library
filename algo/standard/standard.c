@@ -37,18 +37,29 @@ void hanoi(int n, int i, int j) {
     };
 };
 
+void swap(int* a, int* b) {
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+};
+
 void tests() {
+    int a = 5;
+    int b = 10;
+    swap(&a, &b);
+    printf("a: %d, b: %d\n", a, b);
+
     hanoi(3, 0, 2);
 
     printf("4!: %d \n", factoriel(4));
     printf("4!: %d \n", rec_factoriel(4));
 
-    int a=5;
+    int c=5;
     unsigned n=2;
-    printf("%d^%d = %d\n", a, n, exp_rapide(a, n));
+    printf("%d^%d = %d\n", c, n, exp_rapide(c, n));
 }
 
 int main() {
-    tests();
+    // tests();
     return 0;
 }
