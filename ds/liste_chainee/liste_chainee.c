@@ -89,10 +89,41 @@ bool croissante(list* l) {
     return val;
 };
 
+list* insere(list* l, int e) {
+    if (l==NULL) {
+        return add(l, e);
+    };
+    if (l->elem>e) {
+        return add(l, e);
+    };
+    return add(insere(l->next, e), l->elem);
+};
+
+list* tri_insertion(list* l) {
+    list* lt = NULL;
+    while (l!=NULL) {
+        lt = insere(lt, l->elem);
+        l = l->next;
+    };
+    return lt;
+};
+
+
 void tests_algos() {
     printf("range croissante: %d\n", croissante(range(5)));
     printf("range decroissance: %d\n", croissante(reverse(range(5))));
-}
+
+    list* l = range(10);
+    print_list(insere(l, 5));
+
+    int tab[] = {0, 2, 5, 1, 7 ,2, 8};
+    list* l2 = NULL;
+    for (int i=0; i<7; i++) {
+        l2 = add(l2, tab[i]);
+    }
+    print_list(l2);
+    print_list(tri_insertion(l2));
+};
 
 int main() {
     // tests_ds();
