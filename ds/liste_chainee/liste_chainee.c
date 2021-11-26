@@ -3,14 +3,14 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+/* DÉFINITION DE LA STRUCTURE DE LISTE CHAÎNÉE */
+
 typedef struct list list;
 
 struct list {
     list* next;
     int elem;
 };
-
-//typedef struct list list;
 
 list* add(list* l, int e) {
     list* l_new = (list*)malloc(sizeof(int)+sizeof(list*));
@@ -64,7 +64,8 @@ list* reverse(list* l) {
     return l2;
 };
 
-void tests() {
+
+void tests_ds() {
     list* l = NULL;
     list* l2 = add(l, 2);
     printf("liste: %d\n", l2->elem);
@@ -76,7 +77,25 @@ void tests() {
     free(l2);
 };
 
+
+/* FONCTIONS OPÉRANT SUR LES LISTES CHAÎNÉES */
+
+bool croissante(list* l) {
+    bool val = true;
+    while (l->next!=NULL) {
+        val = val && l->elem <= l->next->elem;
+        l= l->next;
+    };
+    return val;
+};
+
+void tests_algos() {
+    printf("range croissante: %d\n", croissante(range(5)));
+    printf("range decroissance: %d\n", croissante(reverse(range(5))));
+}
+
 int main() {
-    tests();
+    // tests_ds();
+    // tests_algos();
     return 0;
 };
