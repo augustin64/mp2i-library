@@ -43,7 +43,16 @@ void swap(int* a, int* b) {
     *b = tmp;
 };
 
+int pgcd(int a, int b) {
+    if (b==0) {
+        return a;
+    };
+    return pgcd(b, a%b);
+}
+
 void tests() {
+    printf("pgcd(12, 26): %d\n", pgcd(12, 26));
+
     int a = 5;
     int b = 10;
     swap(&a, &b);
